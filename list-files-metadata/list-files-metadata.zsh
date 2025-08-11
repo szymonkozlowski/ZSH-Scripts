@@ -76,8 +76,8 @@ print_table_row() {
     local colorspace="$9"
     
     # Truncate long filenames
-    local short_name=$(echo "$name" | cut -c1-28)
-    if [[ ${#name} -gt 28 ]]; then
+    local short_name=$(echo "$name" | cut -c1-27)
+    if [[ ${#name} -gt 27 ]]; then
         short_name="$short_name..."
     fi
     
@@ -255,8 +255,8 @@ find "$SOURCE_FOLDER" -type f \( \
             
             # Output based on mode
             if [ "$output_mode" = "table" ]; then
-                short_name=$(echo "$filename" | cut -c1-28)
-                if [ ${#filename} -gt 28 ]; then
+                short_name=$(echo "$filename" | cut -c1-27)
+                if [ ${#filename} -gt 27 ]; then
                     short_name="$short_name..."
                 fi
                 printf "%-30s %-12s %-10s %-10s %-12s %-8s %-10s %-8s %-10s\n" "$short_name" "$filesize_formatted" "$width" "$height" "$aspect_ratio" "$ppi" "$filetype" "$bitdepth" "$colorspace_display"
